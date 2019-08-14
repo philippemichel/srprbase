@@ -1,0 +1,87 @@
+---
+title: "SRPR"
+author: "Philippe MICHEL"
+output:
+  pdf_document:
+    includes:
+       in_header: tete.tex
+    keep_tex: yes
+    latex_engine: lualatex
+    toc: yes
+  html_notebook:
+    fig_caption: yes
+    theme: spacelab
+  html_document:
+    df_print: paged
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include= FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+# knitr::opts_chunk$set(echo = TRUE, warning = TRUE, message = TRUE)
+```
+
+
+```{r info}
+rm(list=ls())
+library("thesisph")
+library("psy")
+library("tidyverse")
+library("missMDA")
+library("epicalc")
+library("factoextra")
+library("lubridate")
+library("knitr")
+sessionInfo()
+#
+readx <- function(nnx,delx){
+ tnn <- paste0("data/docteur1_srpr_table_",nnx,".csv")
+ zz <- read.csv(tnn, header = TRUE, na.strings = c("","NA", " "))
+ zz <- zz[,-delx]
+ return(zz)
+}
+```
+
+# Importation des données & mise en forme
+
+```{r import}
+lnom <- c("etatcivil","sejrea","admission","sortie","mois6","mois12")
+etatcivil <- readx("etatcivil",c(2:3))
+tt <- etatcivil
+sejrea <- readx("sejrea",c(2,5,16,23))
+sejrea$sejrea_date1 <- ymd(sejrea$sejrea_date1)
+sejrea$sejrea_date2 <- ymd(sejrea$sejrea_date2)
+sejrea$sejrea_dureesej <- as.numeric(sejrea$sejrea_date2-sejrea$sejrea_date1)
+sejrea$serrea_jsansvent <- sejrea$sejrea_dureesej - sejrea$sejrea_jvent
+tt <- merge(tt,sejrea)
+admission <- readx("admission",c(2,76,81,92))
+tt <- merge(tt,admission, by = "codepat")
+# j28 <- read.csv("data/docteur1_srpr_table_j28.csv", header = TRUE)
+# j28 <- j28[,-c(2)]
+# tt <- merge(tt,j28, by = "codepat")
+sortie <- readx("sortie",c(2,19,56,57))
+sortie$sort_date <- ymd(sortie$sort_date)
+tt <- merge(tt,sortie, by = "codepat")
+mois6 <- readx("mois6",c(2))
+tt <- merge(tt,mois6, by = "codepat")
+mois12 <- readx("mois12",c(2))
+tt <- merge(tt,mois12, by = "codepat")
+```
+
+# Tableaux descriptifs
+
+Sortie des tableaux descriptifs un à un. 
+
+```{r tabled , results = "asis"}
+for (i in 2:length(lnom)){
+ nzz <- lnom[i]
+ zz <- get(nzz)
+ tabdescph(zz[,-1], capt = nzz, lab = paste0("tabd",nzz))
+}
+```
+
+
+
+

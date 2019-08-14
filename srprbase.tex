@@ -1,0 +1,585 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={SRPR},
+            pdfauthor={Philippe MICHEL},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{SRPR}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Philippe MICHEL}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+    \date{}
+    \predate{}\postdate{}
+  
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{array}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage[french]{varioref}
+% \usepackage{tikz}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{babel}
+\usepackage{hyperref}
+%
+\hypersetup{%
+colorlinks=true,
+pdftitle={},
+pdfauthor={Philippe MICHEL},
+pdfkeywords={},
+unicode
+}
+\setmainfont[Mapping=tex-text]
+{MyriadPro-Regular}
+\setsansfont[Mapping=tex-text]
+{MinionPro-Regular}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+
+\hypertarget{tableaux-descriptifs}{%
+\section{Tableaux descriptifs}\label{tableaux-descriptifs}}
+
+Sortie des tableaux descriptifs un à un.
+
+\% latex table generated in R 3.5.2 by xtable 1.8-4 package \% Wed Aug
+14 12:40:11 2019
+
+\begin{longtable}{lll}
+  \toprule
+  
+                                                &\mbox{moyenne ± écart type}&\mbox{IC 95 \%}\\
+                                                &\mbox{n/total (\%)}&\\
+                                                \midrule
+                                                \endfirsthead
+                                                \midrule
+                                                &\mbox{moyenne ± écart type}&\mbox{IC 95 \%}\\
+                                                &\mbox{n/total (\%)}&\\
+                                                \midrule
+                                                \endhead
+                                                \bottomrule
+                                                \endfoot
+                                                \bottomrule
+                                                \caption{sejrea}
+                                                \label{tabdsejrea}
+                                                \endlastfoot
+                                                sejrea.reaadm &   &   \\ 
+  ~~~~~~ chirurgicale & 5/72 (6.9 \%) &  [1.9 ; 15] \\ 
+  ~~~~~~ médicale & 2/72 (2.8 \%) &  [0.086 ; 8.9] \\ 
+  ~~~~~~ neuro-chirurgicale & 41/72 (57 \%) &  [45 ; 69] \\ 
+  ~~~~~~ polyvalente & 23/72 (32 \%) &  [21 ; 44] \\ 
+  ~~~~~~ spécialisée autre & 1/72 (1.4 \%) &  [0.1 ; 6.6] \\ 
+  sejrea.hopital &   &   \\ 
+  ~~~~~~ APHP Autre & 4/63 (6.3 \%) &  [1.3 ; 15] \\ 
+  ~~~~~~ Beaujon & 8/63 (13 \%) &  [5.1 ; 23] \\ 
+  ~~~~~~ Bichat & 3/63 (4.8 \%) &  [0.59 ; 12] \\ 
+  ~~~~~~ CHG 95 & 5/63 (7.9 \%) &  [2.1 ; 17] \\ 
+  ~~~~~~ CHG autre  & 3/63 (4.8 \%) &  [0.59 ; 12] \\ 
+  ~~~~~~ CHG IDF & 2/63 (3.2 \%) &  [0.099 ; 10] \\ 
+  ~~~~~~ CHU autre & 1/63 (1.6 \%) &  [0.12 ; 7.5] \\ 
+  ~~~~~~ FOCH & 1/63 (1.6 \%) &  [0.12 ; 7.5] \\ 
+  ~~~~~~ Fondation Rothschild & 1/63 (1.6 \%) &  [0.12 ; 7.5] \\ 
+  ~~~~~~ GHT Novo & 7/63 (11 \%) &  [4.1 ; 21] \\ 
+  ~~~~~~ HEGP & 2/63 (3.2 \%) &  [0.099 ; 10] \\ 
+  ~~~~~~ La Pitié Salpetriere  & 3/63 (4.8 \%) &  [0.59 ; 12] \\ 
+  ~~~~~~ Lariboisiére & 23/63 (37 \%) &  [24 ; 50] \\ 
+  sejrea.jvent & 26.9 ± 31.3 & [18.5 ; 36.5] \\ 
+  sejrea.diag &   &   \\ 
+  ~~~~~~ ACR & 1/69 (1.4 \%) &  [0.11 ; 6.9] \\ 
+  ~~~~~~ autre & 6/69 (8.7 \%) &  [2.8 ; 17] \\ 
+  ~~~~~~ AVC hémorragique & 21/69 (30 \%) &  [20 ; 43] \\ 
+  ~~~~~~ AVC ischémique & 8/69 (12 \%) &  [4.7 ; 21] \\ 
+  ~~~~~~ méningo encéphalite & 3/69 (4.3 \%) &  [0.54 ; 11] \\ 
+  ~~~~~~ Polyradiculonévrite & 4/69 (5.8 \%) &  [1.2 ; 13] \\ 
+  ~~~~~~ sepsis pulmonaire & 8/69 (12 \%) &  [4.7 ; 21] \\ 
+  ~~~~~~ TC grave & 14/69 (20 \%) &  [11 ; 31] \\ 
+  ~~~~~~ traumatisme médullaire & 4/69 (5.8 \%) &  [1.2 ; 13] \\ 
+  sejrea.partum & 2/66 (3 \%) &  [0.095 ; 9.7] \\ 
+  sejrea.ecmo & 5/71 (7 \%) &  [1.9 ; 15] \\ 
+  sejrea.eer & 6/71 (8.5 \%) &  [2.7 ; 17] \\ 
+  sejrea.chir & 10/71 (14 \%) &  [6.5 ; 24] \\ 
+  sejrea.neurochir & 15/71 (21 \%) &  [12 ; 32] \\ 
+  sejrea.craniec & 17/71 (24 \%) &  [14 ; 35] \\ 
+  sejrea.infneuro & 6/71 (8.5 \%) &  [2.7 ; 17] \\ 
+  sejrea.dve & 22/71 (31 \%) &  [20 ; 43] \\ 
+  sejrea.igs & 37.2 ± 24 & [30.5 ; 44.2] \\ 
+  sejrea.csg & 9.12 ± 4.48 & [8.05 ; 10.2] \\ 
+  sejrea.delai.traj & 0.0139 ± 0.118 & [0 ; 0.0548] \\ 
+  sejrea.retard & 0.0278 ± 0.236 & [0 ; 0.11] \\ 
+  sejrea.pbmedadm & 12/72 (17 \%) &  [8.5 ; 27] \\ 
+  sejrea.reafin &   &   \\ 
+  ~~~~~~ chirurgicale & 5/71 (7 \%) &  [1.9 ; 15] \\ 
+  ~~~~~~ médicale & 2/71 (2.8 \%) &  [0.088 ; 9] \\ 
+  ~~~~~~ neuro-chirurgicale & 40/71 (56 \%) &  [44 ; 68] \\ 
+  ~~~~~~ polyvalente & 23/71 (32 \%) &  [21 ; 44] \\ 
+  ~~~~~~ spécialisée autre & 1/71 (1.4 \%) &  [0.1 ; 6.7] \\ 
+  sejrea.dureesej & 49.8 ± 84.5 & [30.1 ; 69.9] \\ 
+  serrea.jsansvent & 30.5 ± 85.8 & [5.27 ; 56.4] \\ 
+  \end{longtable}
+
+\% latex table generated in R 3.5.2 by xtable 1.8-4 package \% Wed Aug
+14 12:40:13 2019
+
+\begin{longtable}{lll}
+  \toprule
+  
+                                                &\mbox{moyenne ± écart type}&\mbox{IC 95 \%}\\
+                                                &\mbox{n/total (\%)}&\\
+                                                \midrule
+                                                \endfirsthead
+                                                \midrule
+                                                &\mbox{moyenne ± écart type}&\mbox{IC 95 \%}\\
+                                                &\mbox{n/total (\%)}&\\
+                                                \midrule
+                                                \endhead
+                                                \bottomrule
+                                                \endfoot
+                                                \bottomrule
+                                                \caption{admission}
+                                                \label{tabdadmission}
+                                                \endlastfoot
+                                                adm.ac.vasc1 & 22/68 (32 \%) &  [21 ; 45] \\ 
+  adm.ac.vasc2 &   &   \\ 
+  ~~~~~~ Aucun & 51/72 (71 \%) &  [59 ; 81] \\ 
+  ~~~~~~ KT central & 5/72 (6.9 \%) &  [1.9 ; 15] \\ 
+  ~~~~~~ PIC line & 2/72 (2.8 \%) &  [0.086 ; 8.9] \\ 
+  ~~~~~~ VVP & 14/72 (19 \%) &  [11 ; 30] \\ 
+  adm.sg & 22/71 (31 \%) &  [20 ; 43] \\ 
+  adm.gastomie & 41/71 (58 \%) &  [45 ; 70] \\ 
+  adm.stomie & 2/70 (2.9 \%) &  [0.089 ; 9.1] \\ 
+  adm.su & 32/70 (46 \%) &  [34 ; 58] \\ 
+  adm.ksp & 2/70 (2.9 \%) &  [0.089 ; 9.1] \\ 
+  adm.trach & 60/71 (85 \%) &  [74 ; 92] \\ 
+  adm.dvp & 7/68 (10 \%) &  [3.8 ; 19] \\ 
+  adm.vm & 11/70 (16 \%) &  [7.7 ; 26] \\ 
+  adm.vm.cont &   &   \\ 
+  ~~~~~~ discontinue & 2/2 (100 \%) &  [12 ; NaN] \\ 
+  adm.vm.h & 2.35 ± 6.43 & [1.04 ; 3.88] \\ 
+  adm.vni & 5/72 (6.9 \%) &  [1.9 ; 15] \\ 
+  adm.vni.cont &   &   \\ 
+  ~~~~~~ discontinue & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  adm.vni.h & 0.472 ± 2.19 & [0.0833 ; 1.07] \\ 
+  adm.esc & 15/70 (21 \%) &  [12 ; 33] \\ 
+  adm.esc.stade1 &   &   \\ 
+  ~~~~~~ Stade 1 & 6/16 (38 \%) &  [14 ; 65] \\ 
+  ~~~~~~ Stade 2 & 4/16 (25 \%) &  [5.7 ; 52] \\ 
+  ~~~~~~ Stade 4 & 6/16 (38 \%) &  [14 ; 65] \\ 
+  adm.esc.loc1 &   &   \\ 
+  ~~~~~~ Autre & 1/17 (5.9 \%) &  [0.42 ; 26] \\ 
+  ~~~~~~ Fesses & 2/17 (12 \%) &  [0.41 ; 35] \\ 
+  ~~~~~~ Sacrum & 11/17 (65 \%) &  [38 ; 87] \\ 
+  ~~~~~~ Talon & 3/17 (18 \%) &  [2.4 ; 42] \\ 
+  adm.esc.tt1 (pansements) & 16/17 (94 \%) &  [74 ; 100] \\ 
+  adm.date.esc2 (2018-02-28) & 1/2 (50 \%) &  [2.8 ; 97] \\ 
+  adm.esc.stade2 (Stade 1) & 1/2 (50 \%) &  [2.8 ; 97] \\ 
+  adm.esc.loc2 (Sacrum) & 1/2 (50 \%) &  [2.8 ; 97] \\ 
+  adm.esc.tt2 (pansements) & 1/2 (50 \%) &  [2.8 ; 97] \\ 
+  adm.bmr & 23/72 (32 \%) &  [21 ; 44] \\ 
+  adm.bmr.loc (nasal) & 3/22 (14 \%) &  [1.8 ; 34] \\ 
+  adm.bmr.germe (Entérobactérie) & 19/22 (86 \%) &  [66 ; 98] \\ 
+  adm.bhr & 1/68 (1.5 \%) &  [0.11 ; 7] \\ 
+  adm.bhr.loc &   &   \\ 
+  ~~~~~~ rectal & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  adm.clostridium & 1/68 (1.5 \%) &  [0.11 ; 7] \\ 
+  adm.poids & 64.7 ± 21.8 & [59.3 ; 69.8] \\ 
+  adm.taille & 165 ± 35.7 & [155 ; 172] \\ 
+  adm.imc & 56.7 ± 292 & [21 ; 159] \\ 
+  adm.alb & 29.7 ± 7.86 & [27.7 ; 31.3] \\ 
+  adm.prealb & 0.212 ± 0.087 & [0.191 ; 0.234] \\ 
+  adm.uree & 6.53 ± 4.62 & [5.51 ; 7.61] \\ 
+  adm.creat & 48.5 ± 27 & [42.3 ; 55.4] \\ 
+  adm.igs2 & 25.6 ± 10.1 & [23.2 ; 28] \\ 
+  adm.igs2age & 18.9 ± 8.17 & [17 ; 20.8] \\ 
+  adm.sofa & 0.458 ± 0.918 & [0.25 ; 0.685] \\ 
+  adm.defaillance & 15/70 (21 \%) &  [12 ; 33] \\ 
+  adm.hemod & 1/72 (1.4 \%) &  [0.1 ; 6.6] \\ 
+  adm.rein & 3/72 (4.2 \%) &  [0.52 ; 11] \\ 
+  adm.neuro & 12/72 (17 \%) &  [8.5 ; 27] \\ 
+  adm.hemato & 1/72 (1.4 \%) &  [0.1 ; 6.6] \\ 
+  adm.respi & 9/72 (12 \%) &  [5.4 ; 22] \\ 
+  adm.autre & 1/72 (1.4 \%) &  [0.1 ; 6.6] \\ 
+  adm.csg & 13 ± 2.77 & [12.3 ; 13.6] \\ 
+  adm.crsr & 16.8 ± 6.45 & [15.2 ; 18.4] \\ 
+  adm.goat & 16.4 ± 25.1 & [5.6 ; 29.1] \\ 
+  adm.barthel & 4.91 ± 11.7 & [2.22 ; 8.22] \\ 
+  adm.four & 15.2 ± 1.86 & [14.7 ; 15.6] \\ 
+  adm.mrcd & 13.5 ± 12.1 & [5.4 ; 21.7] \\ 
+  adm.mrcg & 9.5 ± 11 & [2 ; 17.7] \\ 
+  adm.mrct & 28.2 ± 14.5 & [24.2 ; 32] \\ 
+  adm.whim & 46.4 ± 20.9 & [37.4 ; 53.8] \\ 
+  adm.mif & 32.6 ± 17.7 & [28.6 ; 37.2] \\ 
+  adm.drs & 17.6 ± 4.81 & [15.9 ; 19] \\ 
+  adm.gose & 3.49 ± 1.56 & [3.03 ; 4.03] \\ 
+  adm.gos & 3.48 ± 1.59 & [2.94 ; 4.26] \\ 
+  adm.asia1m &   &   \\ 
+  ~~~~~~ C & 3/5 (60 \%) &  [12 ; 98] \\ 
+  ~~~~~~ L & 1/5 (20 \%) &  [1.3 ; 72] \\ 
+  ~~~~~~ T & 1/5 (20 \%) &  [1.3 ; 72] \\ 
+  adm.asia2m & 4.6 ± 1.34 & [3.5 ; 6] \\ 
+  adm.asia1s (C) & 2/5 (40 \%) &  [2 ; 88] \\ 
+  adm.asia2s & 6 ± 2.83 & [4.33 ; 8.67] \\ 
+  adm.asia.anom &   &   \\ 
+  ~~~~~~ A & 2/6 (33 \%) &  [1.5 ; 80] \\ 
+  ~~~~~~ B & 2/6 (33 \%) &  [1.5 ; 80] \\ 
+  ~~~~~~ C & 2/6 (33 \%) &  [1.5 ; 80] \\ 
+  adm.ecgnormal & 56/69 (81 \%) &  [70 ; 90] \\ 
+  adm.tdrvent & 1/72 (1.4 \%) &  [0.1 ; 6.6] \\ 
+  adm.tdrsupra & 3/72 (4.2 \%) &  [0.52 ; 11] \\ 
+  adm.conduction & 7/72 (9.7 \%) &  [3.6 ; 18] \\ 
+  adm.repol & 1/72 (1.4 \%) &  [0.1 ; 6.6] \\ 
+  adm.ische & 1/72 (1.4 \%) &  [0.1 ; 6.6] \\ 
+  adm.echo &   &   \\ 
+  ~~~~~~ Anomalie connue & 1/14 (7.1 \%) &  [0.51 ; 31] \\ 
+  ~~~~~~ Anomalie méconnue & 2/14 (14 \%) &  [0.51 ; 41] \\ 
+  ~~~~~~ Normale & 11/14 (79 \%) &  [50 ; 97] \\ 
+  adm.deglu & 47/72 (65 \%) &  [53 ; 76] \\ 
+  adm.alim &   &   \\ 
+  ~~~~~~ Entérale & 50/72 (69 \%) &  [58 ; 80] \\ 
+  ~~~~~~ Mixte & 11/72 (15 \%) &  [7.4 ; 25] \\ 
+  ~~~~~~ Orale & 11/72 (15 \%) &  [7.4 ; 25] \\ 
+  adm.diag1 &   &   \\ 
+  ~~~~~~ AVC hémorragique & 20/66 (30 \%) &  [19 ; 43] \\ 
+  ~~~~~~ AVC ischémique & 8/66 (12 \%) &  [4.9 ; 22] \\ 
+  ~~~~~~ Méningo-encéphalite & 1/66 (1.5 \%) &  [0.11 ; 7.2] \\ 
+  ~~~~~~ Neuromyopathie de réanimation & 16/66 (24 \%) &  [14 ; 36] \\ 
+  ~~~~~~ Polyradiculonévrite & 4/66 (6.1 \%) &  [1.2 ; 14] \\ 
+  ~~~~~~ Traumatisme crânien & 13/66 (20 \%) &  [10 ; 31] \\ 
+  ~~~~~~ traumatisme médullaire & 4/66 (6.1 \%) &  [1.2 ; 14] \\ 
+  adm.diag2 &   &   \\ 
+  ~~~~~~ AVC hémorragique & 1/30 (3.3 \%) &  [0.24 ; 15] \\ 
+  ~~~~~~ AVC ischémique & 5/30 (17 \%) &  [4.7 ; 34] \\ 
+  ~~~~~~ Encéphalopathie post anoxique & 1/30 (3.3 \%) &  [0.24 ; 15] \\ 
+  ~~~~~~ Méningo-encéphalite & 2/30 (6.7 \%) &  [0.22 ; 21] \\ 
+  ~~~~~~ Neuromyopathie de réanimation & 20/30 (67 \%) &  [47 ; 83] \\ 
+  ~~~~~~ Traumatisme crânien & 1/30 (3.3 \%) &  [0.24 ; 15] \\ 
+  adm.cognitif & 39/72 (54 \%) &  [42 ; 66] \\ 
+  adm.sommeil & 10/72 (14 \%) &  [6.4 ; 24] \\ 
+  adm.agitation & 8/72 (11 \%) &  [4.5 ; 20] \\ 
+  adm.aphasie & 17/72 (24 \%) &  [14 ; 35] \\ 
+  adm.visuel &   &   \\ 
+  ~~~~~~ Défaillance visuelle complète - Autre & 2/72 (2.8 \%) &  [0.086 ; 8.9] \\ 
+  ~~~~~~ Défaillance visuelle complète - Sd de Terson & 3/72 (4.2 \%) &  [0.52 ; 11] \\ 
+  ~~~~~~ Défaillance visuelle partielle & 3/72 (4.2 \%) &  [0.52 ; 11] \\ 
+  ~~~~~~ non & 57/72 (79 \%) &  [68 ; 88] \\ 
+  ~~~~~~ non évaluable & 7/72 (9.7 \%) &  [3.6 ; 18] \\ 
+  adm.hemip &   &   \\ 
+  ~~~~~~ Aucune & 39/72 (54 \%) &  [42 ; 66] \\ 
+  ~~~~~~ Complête & 12/72 (17 \%) &  [8.5 ; 27] \\ 
+  ~~~~~~ Partielle & 21/72 (29 \%) &  [19 ; 41] \\ 
+  adm.quadrip &   &   \\ 
+  ~~~~~~ Auc & 61/71 (86 \%) &  [76 ; 93] \\ 
+  ~~~~~~ Aucune & 2/71 (2.8 \%) &  [0.088 ; 9] \\ 
+  ~~~~~~ Com & 2/71 (2.8 \%) &  [0.088 ; 9] \\ 
+  ~~~~~~ Par & 3/71 (4.2 \%) &  [0.52 ; 11] \\ 
+  ~~~~~~ Partielle & 3/71 (4.2 \%) &  [0.52 ; 11] \\ 
+  adm.parap &   &   \\ 
+  ~~~~~~ Aucune & 69/72 (96 \%) &  [89 ; 99] \\ 
+  ~~~~~~ Complête & 2/72 (2.8 \%) &  [0.086 ; 8.9] \\ 
+  ~~~~~~ Partielle & 1/72 (1.4 \%) &  [0.1 ; 6.6] \\ 
+  adm.tetrap &   &   \\ 
+  ~~~~~~ Aucune & 53/72 (74 \%) &  [62 ; 84] \\ 
+  ~~~~~~ Complête & 3/72 (4.2 \%) &  [0.52 ; 11] \\ 
+  ~~~~~~ Partielle & 16/72 (22 \%) &  [13 ; 33] \\ 
+  adm.spast &   &   \\ 
+  ~~~~~~ Aucune & 36/65 (55 \%) &  [43 ; 68] \\ 
+  ~~~~~~ Généralisée & 3/65 (4.6 \%) &  [0.58 ; 12] \\ 
+  ~~~~~~ Localisée & 26/65 (40 \%) &  [28 ; 53] \\ 
+  \end{longtable}
+
+\% latex table generated in R 3.5.2 by xtable 1.8-4 package \% Wed Aug
+14 12:40:15 2019
+
+\begin{longtable}{lll}
+  \toprule
+  
+                                                &\mbox{moyenne ± écart type}&\mbox{IC 95 \%}\\
+                                                &\mbox{n/total (\%)}&\\
+                                                \midrule
+                                                \endfirsthead
+                                                \midrule
+                                                &\mbox{moyenne ± écart type}&\mbox{IC 95 \%}\\
+                                                &\mbox{n/total (\%)}&\\
+                                                \midrule
+                                                \endhead
+                                                \bottomrule
+                                                \endfoot
+                                                \bottomrule
+                                                \caption{sortie}
+                                                \label{tabdsortie}
+                                                \endlastfoot
+                                                sort.statut &   &   \\ 
+  ~~~~~~ vivant & 71/71 (100 \%) &  [96 ; NaN] \\ 
+  sort.sejmulti & 10/44 (23 \%) &  [11 ; 37] \\ 
+  sort.nbsej & 0.318 ± 0.639 & [0.133 ; 0.535] \\ 
+  sort.ntbjex & 4.43 ± 12.2 & [1.19 ; 8.68] \\ 
+  sort.lata & 10/65 (15 \%) &  [7.2 ; 26] \\ 
+  sort.lieu &   &   \\ 
+  ~~~~~~ Domicile & 3/71 (4.2 \%) &  [0.52 ; 11] \\ 
+  ~~~~~~ EVC/EPR & 1/71 (1.4 \%) &  [0.1 ; 6.7] \\ 
+  ~~~~~~ HAD & 2/71 (2.8 \%) &  [0.088 ; 9] \\ 
+  ~~~~~~ HAD Rééducation & 1/71 (1.4 \%) &  [0.1 ; 6.7] \\ 
+  ~~~~~~ Réa LATA & 1/71 (1.4 \%) &  [0.1 ; 6.7] \\ 
+  ~~~~~~ Réa/USC & 14/71 (20 \%) &  [11 ; 31] \\ 
+  ~~~~~~ Service MCO & 1/71 (1.4 \%) &  [0.1 ; 6.7] \\ 
+  ~~~~~~ SSR & 48/71 (68 \%) &  [56 ; 79] \\ 
+  sort.serv &   &   \\ 
+  ~~~~~~ hospitalier & 43/61 (70 \%) &  [58 ; 82] \\ 
+  ~~~~~~ privé & 13/61 (21 \%) &  [11 ; 33] \\ 
+  ~~~~~~ public autre & 5/61 (8.2 \%) &  [2.2 ; 17] \\ 
+  sort.trach & 15/71 (21 \%) &  [12 ; 32] \\ 
+  sort.gstomie & 28/71 (39 \%) &  [28 ; 52] \\ 
+  sort.su & 13/71 (18 \%) &  [9.7 ; 29] \\ 
+  sort.vent & 5/71 (7 \%) &  [1.9 ; 15] \\ 
+  sort.vni & 4/71 (5.6 \%) &  [1.2 ; 13] \\ 
+  sort.dvp & 5/71 (7 \%) &  [1.9 ; 15] \\ 
+  sort.cranio & 1/65 (1.5 \%) &  [0.11 ; 7.3] \\ 
+  sort.valim &   &   \\ 
+  ~~~~~~ Entérale & 18/68 (26 \%) &  [16 ; 38] \\ 
+  ~~~~~~ Mixte & 8/68 (12 \%) &  [4.8 ; 21] \\ 
+  ~~~~~~ Orale & 42/68 (62 \%) &  [49 ; 74] \\ 
+  sort.alb & 30.2 ± 11.1 & [27.4 ; 32.7] \\ 
+  sort.csg & 13.8 ± 2.54 & [13.1 ; 14.3] \\ 
+  sort.crsr & 20.8 ± 4.43 & [19.6 ; 21.8] \\ 
+  sort.whim & 55.7 ± 19.6 & [49.1 ; 62.7] \\ 
+  sort.mif & 56.3 ± 30.4 & [49.2 ; 63.8] \\ 
+  sort.drs & 13.7 ± 4.55 & [12.1 ; 15.1] \\ 
+  sort.gose & 3.92 ± 1.77 & [3.43 ; 4.49] \\ 
+  sort.barthel & 26.2 ± 29.2 & [18.9 ; 34.2] \\ 
+  sort.four & 15.2 ± 3.08 & [14.4 ; 15.9] \\ 
+  sort.gos & 3 ± 0.739 & [2.71 ; 3.3] \\ 
+  sort.oms & 2.74 ± 1.05 & [2.3 ; 3.17] \\ 
+  sort.goat & 57.3 ± 37.2 & [25.3 ; 89.3] \\ 
+  sort.mrcg & 6.67 ± 10.9 & [0.802 ; 12.8] \\ 
+  sort.mrcd & 11.4 ± 12.3 & [4 ; 19.2] \\ 
+  sort.mrct & 38.6 ± 14.4 & [35 ; 42.1] \\ 
+  sort.asia1m (C) & 2/3 (67 \%) &  [4.8 ; 98] \\ 
+  sort.asia2m & 4.67 ± 2.52 & [2 ; 7] \\ 
+  sort.asia1s (C) & 2/3 (67 \%) &  [4.8 ; 98] \\ 
+  sort.asia2s & 7 ± 3.46 & [5 ; 11] \\ 
+  sort.asia.anom &   &   \\ 
+  ~~~~~~ B & 1/3 (33 \%) &  [2.1 ; 95] \\ 
+  ~~~~~~ C & 1/3 (33 \%) &  [2.1 ; 95] \\ 
+  ~~~~~~ E & 1/3 (33 \%) &  [2.1 ; 95] \\ 
+  sort.poids & 68.9 ± 17.2 & [65.1 ; 72.9] \\ 
+  sort.comp & 29/70 (41 \%) &  [30 ; 54] \\ 
+  sort.hydroc & 5/71 (7 \%) &  [1.9 ; 15] \\ 
+  sort.infsnc & 4/71 (5.6 \%) &  [1.2 ; 13] \\ 
+  sort.convuls & 4/71 (5.6 \%) &  [1.2 ; 13] \\ 
+  sort.avc & 2/71 (2.8 \%) &  [0.088 ; 9] \\ 
+  sort.mat & 4/71 (5.6 \%) &  [1.2 ; 13] \\ 
+  sort.matchir & 3/70 (4.3 \%) &  [0.53 ; 11] \\ 
+  sort.ablacran & 2/65 (3.1 \%) &  [0.096 ; 9.8] \\ 
+  sort.infautre & 18/71 (25 \%) &  [15 ; 37] \\ 
+  sort.embol & 1/71 (1.4 \%) &  [0.1 ; 6.7] \\ 
+  sort.renal & 2/71 (2.8 \%) &  [0.088 ; 9] \\ 
+  sort.respi & 17/71 (24 \%) &  [14 ; 35] \\ 
+  sort.bmr & 27/70 (39 \%) &  [27 ; 51] \\ 
+  sort.bmr.loc (nasal) & 6/27 (22 \%) &  [7.6 ; 42] \\ 
+  sort.bmr.germe (Entérobactérie) & 21/27 (78 \%) &  [58 ; 92] \\ 
+  sort.bhr & 2/70 (2.9 \%) &  [0.089 ; 9.1] \\ 
+  sort.bhr.loc &   &   \\ 
+  ~~~~~~ rectal & 2/2 (100 \%) &  [12 ; NaN] \\ 
+  sort.clostridium & 1/70 (1.4 \%) &  [0.11 ; 6.8] \\ 
+  sort.esc & 5/71 (7 \%) &  [1.9 ; 15] \\ 
+  sort.date.esc1 &   &   \\ 
+  ~~~~~~ 2018-02-23 & 1/4 (25 \%) &  [1.6 ; 83] \\ 
+  ~~~~~~ 2018-02-28 & 1/4 (25 \%) &  [1.6 ; 83] \\ 
+  ~~~~~~ 2018-11-28 & 1/4 (25 \%) &  [1.6 ; 83] \\ 
+  ~~~~~~ 2019-06-01 & 1/4 (25 \%) &  [1.6 ; 83] \\ 
+  sort.esc.stade1 &   &   \\ 
+  ~~~~~~ Stade 1 & 1/6 (17 \%) &  [1.1 ; 64] \\ 
+  ~~~~~~ Stade 3 & 3/6 (50 \%) &  [8.8 ; 91] \\ 
+  ~~~~~~ Stade 4 & 2/6 (33 \%) &  [1.5 ; 80] \\ 
+  sort.esc.loc1 &   &   \\ 
+  ~~~~~~ Fesses & 1/6 (17 \%) &  [1.1 ; 64] \\ 
+  ~~~~~~ Sacrum & 4/6 (67 \%) &  [20 ; 98] \\ 
+  ~~~~~~ Talon & 1/6 (17 \%) &  [1.1 ; 64] \\ 
+  sort.esc.tt1 (pansements) & 1/6 (17 \%) &  [1.1 ; 64] \\ 
+  sort.date.esc2 &   &   \\ 
+  ~~~~~~ 2019-06-02 & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  sort.esc.stade2 &   &   \\ 
+  ~~~~~~ Stade 2 & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  sort.esc.loc2 &   &   \\ 
+  ~~~~~~ Fesses & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  sort.esc.tt2 &   &   \\ 
+  ~~~~~~ VAC & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  \end{longtable}
+
+\% latex table generated in R 3.5.2 by xtable 1.8-4 package \% Wed Aug
+14 12:40:15 2019
+
+\begin{longtable}{lll}
+  \toprule
+  
+                                                &\mbox{moyenne ± écart type}&\mbox{IC 95 \%}\\
+                                                &\mbox{n/total (\%)}&\\
+                                                \midrule
+                                                \endfirsthead
+                                                \midrule
+                                                &\mbox{moyenne ± écart type}&\mbox{IC 95 \%}\\
+                                                &\mbox{n/total (\%)}&\\
+                                                \midrule
+                                                \endhead
+                                                \bottomrule
+                                                \endfoot
+                                                \bottomrule
+                                                \caption{mois6}
+                                                \label{tabdmois6}
+                                                \endlastfoot
+                                                m6.contact (Autre) & 3/4 (75 \%) &  [17 ; 98] \\ 
+  m6.statut (décédé) & 5/8 (62 \%) &  [23 ; 94] \\ 
+  m6.lieu (Domicile) & 2/3 (67 \%) &  [4.8 ; 98] \\ 
+  m6.trach & 2/8 (25 \%) &  [1 ; 65] \\ 
+  m6.gstomie & 2/8 (25 \%) &  [1 ; 65] \\ 
+  m6.su & 2/8 (25 \%) &  [1 ; 65] \\ 
+  m6.vent & 1/8 (12 \%) &  [0.87 ; 51] \\ 
+  m6.vni & 1/8 (12 \%) &  [0.87 ; 51] \\ 
+  m6.eq5mob & 0.125 ± 0.354 & [0 ; 0.4] \\ 
+  m6.eq5aut & 0.125 ± 0.354 & [0 ; 0.4] \\ 
+  m6.eq5act & 0.375 ± 1.06 & [0 ; 1.2] \\ 
+  m6.eq5dou & 0.125 ± 0.354 & [0 ; 0.4] \\ 
+  m6.eq5anx & 0.125 ± 0.354 & [0 ; 0.4] \\ 
+  m6.eq5t & 0.875 ± 2.47 & [0 ; 2.8] \\ 
+  m6.eq5eva & 0.5 ± 1.41 & [0 ; 1.6] \\ 
+  m6.poids & 1.88 ± 5.3 & [0 ; 6] \\ 
+  m6.barthel & 23.7 ± 35.9 & [0 ; 65] \\ 
+  m6.oms & 0.5 ± 0.707 & [0 ; 1] \\ 
+  m6.consult & 2/8 (25 \%) &  [1 ; 65] \\ 
+  m6.hospi & 2/8 (25 \%) &  [1 ; 65] \\ 
+  m6.hospirea & 2/8 (25 \%) &  [1 ; 65] \\ 
+  \end{longtable}
+
+\% latex table generated in R 3.5.2 by xtable 1.8-4 package \% Wed Aug
+14 12:40:16 2019
+
+\begin{longtable}{lll}
+  \toprule
+  
+                                                &\mbox{moyenne ± écart type}&\mbox{IC 95 \%}\\
+                                                &\mbox{n/total (\%)}&\\
+                                                \midrule
+                                                \endfirsthead
+                                                \midrule
+                                                &\mbox{moyenne ± écart type}&\mbox{IC 95 \%}\\
+                                                &\mbox{n/total (\%)}&\\
+                                                \midrule
+                                                \endhead
+                                                \bottomrule
+                                                \endfoot
+                                                \bottomrule
+                                                \caption{mois12}
+                                                \label{tabdmois12}
+                                                \endlastfoot
+                                                m12.statut &   &   \\ 
+  ~~~~~~ vivant & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  m12.lieu &   &   \\ 
+  ~~~~~~ HAD EVC EPR & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  m12.trach &   &   \\ 
+  ~~~~~~ oui & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  m12.gstomie &   &   \\ 
+  ~~~~~~ oui & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  m12.su &   &   \\ 
+  ~~~~~~ oui & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  m12.vent &   &   \\ 
+  ~~~~~~ oui & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  m12.vni &   &   \\ 
+  ~~~~~~ oui & 1/1 (100 \%) &  [3.7 ; NaN] \\ 
+  m12.eq5mob & 1.5 ± 2.12 & [0 ; 3] \\ 
+  m12.eq5aut & 1.5 ± 2.12 & [0 ; 3] \\ 
+  m12.eq5act & 1.5 ± 2.12 & [0 ; 3] \\ 
+  m12.eq5dou & 1.5 ± 2.12 & [0 ; 3] \\ 
+  m12.eq5anx & 1.5 ± 2.12 & [0 ; 3] \\ 
+  m12.eq5t & 7.5 ± 10.6 & [0 ; 15] \\ 
+  m12.eq5eva & 49.5 ± 70 & [0 ; 99] \\ 
+  m12.poids & 7.5 ± 10.6 & [0 ; 15] \\ 
+  m12.barthel & 0.5 ± 0.707 & [0 ; 1] \\ 
+  m12.oms & 2 ± NA & [NA ; NA] \\ 
+  m12.consult & 1/2 (50 \%) &  [2.8 ; 97] \\ 
+  m12.hospi & 1/2 (50 \%) &  [2.8 ; 97] \\ 
+  m12.hospirea & 1/2 (50 \%) &  [2.8 ; 97] \\ 
+  \end{longtable}
+
+
+\end{document}
