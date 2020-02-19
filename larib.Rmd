@@ -1,0 +1,251 @@
+---
+title: "SRPR - base<BR>V 3.0"
+author: "Philippe MICHEL"
+date: "`r Sys.Date()`"
+output:
+  # tufte::tufte_html: default
+  prettydoc::html_pretty:
+    theme: caiman
+    highlight: github
+    toc: yes
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_float: 
+       collapsed: false
+    theme: lumen
+  word_document:
+    toc: yes
+  html_notebook:
+    fig_caption: yes
+    theme: spacelab
+  pdf_document:
+    includes:
+      in_header: tete.tex
+    keep_tex: yes
+    latex_engine: lualatex
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include= FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+# knitr::opts_chunk$set(echo = TRUE, warning = TRUE, message = TRUE)
+```
+
+
+```{r info}
+rm(list=ls())
+library("thesisph")
+library("missMDA")
+library("epiDisplay")
+library("factoextra")
+library("lubridate")
+library("knitr")
+library("stringr")
+library("tidyverse")
+library("kableExtra")
+# sessionInfo()
+#
+readx <- function(nnx,delx){
+ tnn <- paste0("data/docteur1_srpr_table_",nnx,".csv")
+ zz <- read.csv(tnn, header = TRUE, na.strings = c("","NA", " "))
+ zz <- zz[,-delx]
+ return(zz)
+}
+```
+
+
+```{r import}
+# Importation des données & mise en forme
+rm(list=ls())
+readx <- function(nnx,delx){
+ tnn <- paste0("data/",nnx,".csv")
+ zz <- read.csv(tnn, header = TRUE, na.strings = c("","NA","NA ", " ","NULL"))
+ zz <- zz[,-delx]
+ return(zz)
+}
+ #
+lnom <- c("etatcivil","sejrea","admission","sortie","mois6","mois12")
+etatcivil <- read.csv("data/etatcivil.csv", header = TRUE, na.strings = c("","NA", " "))
+etatcivil <- etatcivil[,-c(2,3)]
+sejrea <- readx("sejrea",c(2,5,16,23))
+sejrea <- sejrea %>% 
+  filter(sejrea_hopital == "Lariboisiére")
+sejrea$sejrea_date1 <- ymd(sejrea$sejrea_date1)
+sejrea$sejrea_date2 <- ymd(sejrea$sejrea_date2)
+sejrea$sejrea_dureesej <- as.numeric(sejrea$sejrea_date2-sejrea$sejrea_date1)
+sejrea$serrea_jsansvent <- sejrea$sejrea_dureesej - sejrea$sejrea_jvent
+admission <- readx("admission",c(2,76,81,92))
+sortie <- readx("sortie",c(2,19,56,57))
+sortie$sort_date <- ymd(sortie$sort_date)
+tt <- sejrea
+tt <- left_join(tt,etatcivil)
+tt <- left_join(tt,admission)
+tt <- left_join(tt,sortie)
+```
+
+
+Données ne concernant que les patients en provenance de Lariboisière soit `r dim(tt)[1]` cas.
+
+```{r}
+tt <- tt %>% 
+  filter(sejrea_hopital == "Lariboisiére")
+```
+
+
+# Durée de séjour
+
+## Réanimation
+```{r sejrea}
+mm <- signif(mean(tt$sejrea_dureesej, na.rm = TRUE),3)
+mss <- signif(sd(tt$sejrea_dureesej, na.rm = TRUE),3)
+md <- quantile(tt$sejrea_dureesej, na.rm = TRUE)
+md <- paste0(md[[3]]," (", md[[2]]," ; ", md[[4]],")")
+```
+
+Moyenne :  `r mm` (jours); écart-type : `r mss` 
+
+Mediane & quartiles : `r md`.
+
+```{r dsejrea}
+tt %>% 
+  ggplot() + 
+  aes(x = 1, y = sejrea_dureesej) +
+  labs(title = "Durée de séjour réanimation",
+       y = "jours"
+  ) + 
+  geom_violin(fill = "lightblue", col= "blue") +
+  geom_boxplot(width = 0.2) +
+  theme_light() + 
+  theme(plot.title = element_text(size=16, face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=12, face="bold"),
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(size=12, face="bold"),
+        legend.position = "none") 
+```
+
+
+
+##  SRPR
+
+La durée de séjour SPRP est la durée totale, cummulée s'il y a des séjours multiples (7 cas)
+```{r sejd}
+tt$dursrpr <- tt$sort_date-tt$sejrea_date2
+mm <- signif(mean(tt$dursrpr, na.rm = TRUE),3)
+mss <- signif(sd(tt$dursrpr, na.rm = TRUE),3)
+md <- quantile(tt$dursrpr, na.rm = TRUE)
+md <- paste0(md[[3]]," (", md[[2]]," ; ", md[[4]],")")
+```
+
+Moyenne :  `r mm` (jours); écart-type : `r mss` 
+
+Mediane & quartiles : `r md`.
+
+```{r dsejsrpr}
+tt %>% 
+  ggplot() + 
+  aes(x = 1, y = dursrpr) +
+  labs(title = "Durée de séjour srpr",
+       y = "jours"
+  ) + 
+  geom_violin(fill = "lightblue", col= "blue") +
+  geom_boxplot(width = 0.2) +
+  theme_light() + 
+  theme(plot.title = element_text(size=16, face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=12, face="bold"),
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(size=12, face="bold"),
+        legend.position = "none") 
+```
+# IGS II
+
+```{r igs}
+mms <- round(mean(tt$sejrea_igs, na.rm = TRUE),2)
+mds <- quantile(tt$sejrea_igs, na.rm = TRUE)
+mds <- paste0(mds[[3]]," (", mds[[2]]," ; ", mds[[4]],")")
+#
+mma <- round(mean(tt$adm_igs2, na.rm = TRUE),2)
+mda <- quantile(tt$adm_igs2, na.rm = TRUE)
+mda <- paste0(mda[[3]]," (", mda[[2]]," ; ", mda[[4]],")")
+```
+
+En réa : Moyenne :  `r mms`, Mediane & quartiles : `r mds`.
+
+À l'admission au SRPR : Moyenne :  `r mma`, Mediane & quartiles : `r mda`.
+
+```{r igsgrah}
+igs <- tibble(tt$sejrea_igs,tt$adm_igs2)
+names(igs) <- c("Réanimation","SRPR")
+igs %>% 
+  pivot_longer(names(igs),names_to = "Service", values_to = "IGS2") %>% 
+  ggplot() +
+  aes (x = Service, y = IGS2, fill = Service) +
+  labs(title = "IGS II",
+       y = "IGS II"
+  ) + 
+  geom_violin() +
+  geom_boxplot(width = 0.2, fill = "white") +
+  theme_light() + 
+  theme(plot.title = element_text(size=16, face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size=12, face="bold"),
+        axis.text.x = element_text(size=12, face="bold"),
+        axis.text.y = element_text(size=12, face="bold"),
+        legend.position = "none") 
+```
+
+
+<!-- *GSC, Four Score / CRS / WHIM / GOAT / MIF / DRS / GOSE / GOS / Barthel/ MRC.* -->
+
+# Scores
+
+```{r tabscores}
+tbmm <- function(dfx){
+    tabx <- NULL
+    lgt <- dim(dfx)[1]
+    for (i in 1:dim(dfx)[2]) {
+      nn <- str_split(names(dfx)[i], "_")[[1]][2]
+      varx <- na.omit(dfx[, i])
+      lgx <- length(varx)
+      pcx <- signif(lgx * 100 / lgt, 2)
+      lgg <- paste0(lgx, " (", pcx, " %)")
+      moy <- signif(mean(varx, na.rm = TRUE), 3)
+      ss <- signif(sd(varx, na.rm = TRUE), 3)
+      mm <- paste0(moy, " ± ", ss)
+      med <- quantile(varx, na.rm = TRUE)[3]
+      inf <- quantile(varx, na.rm = TRUE)[2]
+      sup <- quantile(varx, na.rm = TRUE)[4]
+      md <- paste0(med, " [ ", inf, " ; ", sup, " ]")
+      ligx <- c(nn, lgg, mm, md)
+      tabx <- rbind(tabx, ligx)
+    }
+    kable(
+      tabx,
+      col.names = c(" ", "taux remplissage", "moyenne", "médiane"),
+      caption = "Scores - Sortie",
+      row.names = FALSE
+    ) %>%
+      kable_styling(bootstrap_options = "striped", full_width = FALSE)
+  }
+```
+
+
+## Admission
+
+```{r scoresadm}
+tbmm(tt[,77:89])
+```
+
+Le taux de remplissage est donné en nombre(%). La moyenne en moyenne ± écart-type , la médiane avec ses quartiles. 
+
+
+## Sortie
+
+```{r scoressort}
+tbmm(tt[,134:147])
+
+```

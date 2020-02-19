@@ -1,0 +1,86 @@
+% Article en Minion pro avec bilio & index, glossaires...
+%
+\documentclass[a4paper, french]{tufte-handout} 
+%
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{xcolor} 
+\usepackage{array}
+\usepackage{amsmath} 
+\usepackage{xltxtra} 
+\usepackage{marvosym}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage{xspace}
+\usepackage{babel} 
+\usepackage{setspace}
+\usepackage{hyperref}
+%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{%
+colorlinks=true,
+pdftitle={},
+pdfauthor={Philippe MICHEL},
+pdfkeywords={},
+unicode
+}
+%
+\title{Base SRPR}
+\author{Philippe MICHEL}
+% 
+\begin{document} 
+%
+
+\maketitle
+
+\section*{Technique}
+\label{Technique}
+
+
+La base de données concerne tous les patients admis au SPRP\\ (CH
+Carnelle - Portes de l'Oise). Le médecin responsable de l'étude est le
+Dr Caroline \textsc{Grant}.
+
+\begin{itemize}
+\item Adresse de la base : \texttt{<https://www.docteur-michel.fr/srpr/>}
+\item  Login : \texttt{rea}
+\item Mot de passe : \texttt{srpr}
+\end{itemize}
+
+
+La base est hébergée par \textsc{PlanetHoster}. Les serveurs sont en
+France. Serveurs sous Linux Debian 7.0. Serveur Apache, bases de données
+MariaDB 10.3, interface en PHP 7.3.
+
+Les mots de passe, nom \& prénom des patients sont codés pour le
+stockage (hash 128 bits). Le formulaire de saisie est en https donc toutes les
+saisies sont codées pendant les transferts.
+
+Déclaration à la CNIL sous le no 2210803.
+
+\section*{Contenu}
+
+La base comprend plusieurs tables contenant des informations sur :
+\begin{itemize}
+\item État-civil, données démographiques. 
+\item État de santé avant l'hospitalisation
+\item Le séjour en réanimation\marginnote{Tous les patients admis au
+    SRPR sortent de réanimation}
+\item État à l'admission au SRPR
+\item Bilan à J28
+\item Bilan à la sortie
+\item Rappel à 6 mois \& un an (pas encore débuté)
+\end{itemize}
+
+La base se veut exhaustive \& comprend tous les patients admis au SRPR
+(sauf opposition) depuis janvier 2018 soit 96 à ce jour. Une
+information générale par affiches dans les salles d'attente est donnée
+aux familles.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+\end{document}
+%%% Local Variables: 
+ %%% mode: latex %%% TeX-master: t %%% 
